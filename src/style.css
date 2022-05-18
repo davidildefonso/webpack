@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "Kalinga";
+	src: url("./kalinga.ttf");
+	font-weight: 400;
+	font-style: normal;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.bg {
+	background-color: #000;
+}
+
+.text-white {
+	color: #fff;
+	font-family: "kalinga";
+	font-size: xx-large;
+}
+
+.custom-image{
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+}
+
+.box-with-bg-image{
+	background-color: #fff;
+	width: 20px;
+	height: 80px;
+	background-size: cover;
+	background-image: url('./my_image.png');
+}
+
+.reveal-button{
+	background-color: #000;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	border-color: #fff;
+	margin: 10px;
+}
