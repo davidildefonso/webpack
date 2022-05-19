@@ -9,23 +9,11 @@ module.exports = {
 	entry: {
 		index: {
 			import: "./src/index.js",
-		//	dependOn: 'shared'   -- shared node module
 		},
-		print: {
-			import: "./src/print.js",
-		//	dependOn: 'shared' -- shared node module
-		},
-	//	shared: "canvas-draw-edit" -- shared node module
 	},
 	devtool: 'inline-source-map',
 	devServer: {
 		static: "./dist"
-	},
-	optimization: {
-		// runtimeChunk: "single" -- for bundling entry points
-		splitChunks: {
-			chunks: "all"
-		}
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -36,7 +24,6 @@ module.exports = {
 		filename: "[name].bundle.js",
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
-		//publicPath: "/"   this works with the express server when using webpackDevMiddleware
 	},
 	module: {
 		rules: [

@@ -1,4 +1,3 @@
-import { convertToNonSense } from 'canvas-draw-edit'
 import './style.css'
 import myImage from './my_image.png'
 import Data from './data.xml'
@@ -6,14 +5,16 @@ import Notes from './data.csv'
 import toml from './data.toml'
 import yaml from './data.yaml'
 import json5 from './data.json5'
-import printMe from './print.js'
-import { revealText } from './otherModule.js'
 
 console.log(toml.owner.name, toml.title)
 console.log(yaml.owner.name, yaml.title)
 console.log(json5.owner.name, json5.title)
 
-const component = () => {
+const getComponent = async () => {
+	const  { convertToNonSense } = await import('canvas-draw-edit')
+	const  { revealText } = await import('./otherModule.js')
+	const  { default: printMe } = await import('./print.js')
+
 	const element = document.createElement("div")
 	element.classList.add('bg', 'text-white')
 
@@ -47,5 +48,8 @@ const component = () => {
 	return element;
 }
 
+getComponent()
+	.then((element) => {
+		document.body.appendChild(element)
+	})
 
-document.body.appendChild(component())
